@@ -25,4 +25,7 @@ class PostController(private val service: PostService) {
     @DeleteMapping("/{id}/likes")
     fun unlikeById(@PathVariable id: Long) = service.unlikeById(id)
 
+    @PostMapping("/{id}/shares")
+    fun repostById(@PathVariable id: Long) = service.repostById(id)
+
 }

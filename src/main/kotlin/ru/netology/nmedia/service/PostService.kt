@@ -62,4 +62,12 @@ class PostService(private val repository: PostRepository) {
         }
         .toDto()
 
+    fun repostById(id: Long): Post = repository
+        .findById(id)
+        .orElseThrow(::NotFoundException)
+        .apply {
+            shares += 1
+        }
+        .toDto()
+
 }
