@@ -14,8 +14,12 @@ class AppWebMvcConfigurer : WebMvcConfigurer {
     override fun addInterceptors(registry: InterceptorRegistry) {
         registry.addInterceptor(object : HandlerInterceptor {
             override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
-                if (request.requestURI.startsWith("/api")) {
-                    Thread.sleep(1_000)
+                if (
+                    request.requestURI.startsWith("/api/slow") ||
+                    request.requestURI.startsWith("/static/avatars") ||
+                    request.requestURI.startsWith("/images")
+                ) {
+                    Thread.sleep(5_000)
                 }
                 return true
             }
