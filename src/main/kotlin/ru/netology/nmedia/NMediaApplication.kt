@@ -47,7 +47,7 @@ class NMediaApplication {
                     likes = 0,
                 )
             )*/
-            save(
+          save(
                 Post(
                     id = 0,
                     author = "Netology",

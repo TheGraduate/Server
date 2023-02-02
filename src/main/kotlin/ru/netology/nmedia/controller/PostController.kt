@@ -10,8 +10,8 @@ class PostController(private val service: PostService) {
     @GetMapping
     fun getAll() = service.getAll()
 
-    @GetMapping("/{id}")
-    fun getById(@PathVariable id: Long) = service.getById(id)
+   /* @GetMapping("/{id}")
+    fun getById(@PathVariable id: Long) = service.getById(id)*/
 
     @PostMapping
     fun save(@RequestBody dto: Post) = service.save(dto)
